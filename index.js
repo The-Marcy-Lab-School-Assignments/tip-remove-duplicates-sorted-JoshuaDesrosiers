@@ -15,7 +15,22 @@
  */
 
 const removeDuplicates = (nums) => {
-    //write your code here
+   let uniq = 0
+   for(let x=0; x<nums.length; x++){
+    let un=true
+
+    for(let y = nums.length-1; y>x; y--){
+
+    if(nums[y]==nums[x]){
+        nums[y]=undefined
+        un=false
+    }
+    }
+   if(un)uniq++
+   }
+   nums.sort((a,b)=>a-b)
+   nums=nums.filter((val)=>typeof val =='number')
+   return uniq
 };
 
 // Example usage (commented out to avoid interference with tests)
